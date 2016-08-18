@@ -17,6 +17,43 @@ The MPEG DASH packager is built on:
 | VOD  | MP4             | Single Period MPEG-DASH | Planned   |
 | VOD  | MP4 w cue sheet | Multi Period MPEG-DASH  | Planned   |
 
+# Deploying DASH Packager
+
+## Running on localhost
+
+Start DASH packager listening on port 3000:
+
+    docker run -d -p 3000:80 --restart=always --name packager eyevinntechnology/packager:0.1.0
+
+Verify it is up and running by entering http://localhost:3000/ in your web browser
+
+Now configure an encoder to post HLS to:
+
+    http://localhost:3000/ingest/event/
+
+To stop the packager you would:
+
+    docker stop packager && docker rm -v registry packager
+
+You could also use a Docker compose config:
+
+```
+packager:
+  restart: always
+  image: eyevinntechnology/packager:0.1.0
+  ports:
+    - 3000:80 
+  volumes:
+    - /tmp/data:/data
+```
+
+And simply start it by running:
+
+    docker-compose up -d
+
+Shut down the packager by running:
+
+    docker-compose down
 
 # License
 
