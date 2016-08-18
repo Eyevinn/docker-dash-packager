@@ -31,6 +31,14 @@ Now configure an encoder to post HLS to:
 
     http://localhost:3000/ingest/event/
 
+And you would then access the HLS here
+
+    http://localhost:3000/live/event/master.m3u8
+
+and the MPEG DASH stream here
+
+    http://localhost:3000/live/event.mpd/manifest.mpd
+
 To stop the packager you would:
 
     docker stop packager && docker rm -v registry packager
