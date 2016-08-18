@@ -35,6 +35,8 @@ To stop the packager you would:
 
     docker stop packager && docker rm -v registry packager
 
+## Using Docker Compose
+
 You could also use a Docker compose config:
 
 ```
