@@ -1,0 +1,8 @@
+# Template for Docker compose
+packager:
+  restart: always
+  image: eyevinntechnology/packager:0.1.0
+  ports:
+    - 3000:80
+  volumes:
+    - /tmp/data:/data
