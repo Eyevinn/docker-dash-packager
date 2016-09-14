@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Available streams</h2>
+    <table>
+    <tr>
+        <th>Name</th><th>HLS</th><th>MPEG DASH</th><th>Multi MPEG DASH</th>
+    </tr>
+        <% streams.forEach(function(s) { %>
+    <tr>
+        <td><%= s.name %></td>
+        <td><a href="<%= s.hls %>">master.m3u8</a></td>
+        <td><a href="<%= s.dash %>">manifest.mpd</a></td>
+        <td><a href="<%= s.multi %>">multi.mpd</a></td>
+    </tr>
+        <% }); %>
+    </table>
+  </body>
+</html>

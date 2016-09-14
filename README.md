@@ -1,14 +1,17 @@
 # Description
 A Docker container for an open source MPEG DASH packager featuring
+
  - Single period MPEG DASH for VOD and Live
  - Multi period MPEG DASH for VOD and Live
 
 The MPEG DASH packager is built on:
+
  - Ubuntu 
  - Apache2 (https://httpd.apache.org)
  - ffmpeg (https://ffmpeg.org)
  - Bento4 (https://www.bento4.com)
  - hls2dash (https://pypi.python.org/pypi/hls2dash)
+ - nodejs-express (for the admin UI)
 
 |      | Input           | Output                  | Supported |
 | ---- | --------------- | ----------------------- | --------- |
@@ -25,21 +28,45 @@ Start DASH packager listening on port 3000:
 
     docker run -d -p 3000:80 --restart=always --name packager eyevinntechnology/packager:0.1.0
 
-Verify it is up and running by entering http://localhost:3000/ in your web browser
+Verify it is up and running by entering http://localhost:3000/ in your web browser and you would see something like this:
 
+![](screenshot-packager.png)
+
+### Testing with encoder
 Now configure an encoder to post HLS to:
 
     http://localhost:3000/ingest/event/
 
+### Testing without encoder
+   
+If you don't have an encoder you can test the packager with the [hls-relay](https://github.com/Eyevinn/hls-relay) script. First install it:
+
+	pip install hlsrelay
+	
+Then run it:
+
+	hls-relay http://example.com/event/master.m3u8 http://localhost:3000/ingest/event/
+
+### Playing
 And you would then access the HLS here
 
     http://localhost:3000/live/event/master.m3u8
 
-and the MPEG DASH stream here
+which should be playable in a Safari web browser.
+
+The MPEG DASH stream is found here
 
     http://localhost:3000/live/event.mpd/manifest.mpd
 
-To stop the packager you would:
+and a multi period MPEG DASH variant is found here
+    
+    http://localhost:3000/live/event.mpd/multi.mpd
+
+You can also see the available streams in the admin page, in this case on http://localhost:3000/admin/. Default username is "admin" and password is "eyevinntechnology"
+
+![](screenshot-admin.png)
+
+To stop the packager you run:
 
     docker stop packager && docker rm -v registry packager
 

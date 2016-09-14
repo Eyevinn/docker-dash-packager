@@ -9,12 +9,17 @@
     padding: 0px 0px 0px 0px;
   }
 
+  @font-face {
+    font-family: LevelOne;
+    src: url('LevelOne.woff');
+  }
+
   body, html {
     padding: 3px 3px 3px 3px;
 
     background-color: #D8DBE2;
 
-    font-family: Verdana, sans-serif;
+    font-family: LevelOne, Verdana, sans-serif;
     font-size: 11pt;
     text-align: center;
   }
@@ -24,6 +29,7 @@
     display: table;
 
     width: 800px;
+    height: 800px;
 
     margin-bottom: 3px;
     margin-left: auto;
@@ -42,7 +48,13 @@
 </head>
 <body>
   <div class="main_page">
+    <img src="eyevinn-logo.png"/>
+    <br/><br/>
     <h1>Open Source DASH Packager</h1>
+    <p><a href="https://github.com/Eyevinn/docker-dash-packager">Github repository</a>
+    <br/><br/>
+    <p><b>Status:</b> Ready to receive HLS</p>
+    <a href="/admin/">Admin page</a>
   </div>
 </body>
 </html>

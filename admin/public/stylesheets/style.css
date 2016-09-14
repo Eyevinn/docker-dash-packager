@@ -1,0 +1,22 @@
+@font-face {
+    font-family: LevelOne;
+    src: url('LevelOne.woff');
+}
+
+body {
+  padding: 50px;
+  font: 14px LevelOne, "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table {
+  width: 800px;
+  border: 1px solid;
+}
+
+td {
+  text-align: center;
+}
