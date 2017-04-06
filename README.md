@@ -26,7 +26,7 @@ The MPEG DASH packager is built on:
 
 Start DASH packager listening on port 3000:
 
-    docker run -d -p 3000:80 --restart=always --name packager eyevinntechnology/packager:0.1.0
+    docker run -d -p 3000:80 --restart=always --name packager eyevinntechnology/packager:0.1.2
 
 Verify it is up and running by entering http://localhost:3000/ in your web browser and you would see something like this:
 
@@ -77,7 +77,7 @@ You could also use a Docker compose config:
 ```
 packager:
   restart: always
-  image: eyevinntechnology/packager:0.1.0
+  image: eyevinntechnology/packager:0.1.2
   ports:
     - 3000:80 
   volumes:

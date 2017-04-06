@@ -9,6 +9,7 @@ RUN a2enmod allowmethods
 RUN a2enmod headers
 RUN a2enmod proxy
 RUN a2enmod proxy_http
+RUN a2enmod expires
 RUN pip install hls2dash
 RUN mkdir -p /var/packager && \
   chown www-data.www-data /var/packager
